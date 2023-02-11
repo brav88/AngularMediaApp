@@ -1,0 +1,9 @@
+img {
+    width: auto;
+    height: 250px;
+}
+
+#cardMovies{
+    width: 18rem;
+    margin-left: 10px;
+}

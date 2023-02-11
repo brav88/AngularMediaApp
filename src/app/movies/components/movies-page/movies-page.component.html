@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+        <div id="cardMovies" class="card" *ngFor="let movie of movies">
+            <img src='{{ movie.Poster }}' class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ movie.Title }}</h5>
+                <div class="row">
+                    <div class="col-5">
+                        Director:
+                    </div>
+                    <div class="col-7">
+                        {{ movie.Director }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        Released:
+                    </div>
+                    <div class="col-7">
+                        {{ movie.Released }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        Category:
+                    </div>
+                    <div class="col-7">
+                        {{ movie.Category }}
+                    </div>
+                </div>
+                <hr>
+                <a href="#" class="btn btn-primary">View movie</a>
+            </div>
+        </div>
+    </div>
+</div>
