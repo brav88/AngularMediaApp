@@ -1,18 +1,18 @@
 <div class="container-fluid">
     <div>
-        <h3>{{moviesCategory}}</h3>
+        <h3></h3>
     </div>
     <div class="row">
-        <div id="cardMovies" class="card" *ngFor="let movie of movies">
-            <img src='https://image.tmdb.org/t/p/original{{ movie.poster_path }}' class="card-img-top" alt="...">
+        <div id="cardMovies" class="card" *ngFor="let serie of songs">
+            <img src='https://image.tmdb.org/t/p/original{{ serie.poster_path }}' class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">{{ movie.title }}</h5>
+                <h5 class="card-title">{{ songs.name }}</h5>
                 <div class="row">
                     <div class="col-5">
                         Votes:
                     </div>
                     <div class="col-7">
-                        {{ movie.vote_average }}
+                        {{ songs.vote_average }}
                     </div>
                 </div>
                 <div class="row">
@@ -20,7 +20,7 @@
                         Released:
                     </div>
                     <div class="col-7">
-                        {{ movie.release_date }}
+                        {{ songs.first_air_date }}
                     </div>
                 </div>
                 <div class="row">
@@ -28,11 +28,11 @@
                         Popularity:
                     </div>
                     <div class="col-7">
-                        {{ movie.popularity }}
+                        {{ songs.popularity }}
                     </div>
                 </div>
                 <hr>
-                <a href="#" class="btn btn-primary">View movie</a>
+                <a href="#" class="btn btn-primary">Listen Song</a>
             </div>
         </div>
     </div>

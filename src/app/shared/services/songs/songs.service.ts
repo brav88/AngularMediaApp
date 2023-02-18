@@ -4,11 +4,11 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class MoviesService {
+export class SongsService {
 
   constructor(private http: HttpClient) { }
 
-  getMovies(){
-    return this.http.get('https://api.themoviedb.org/4/list/1?page=1&api_key=5f2b5e0ae3a00a80c918135739ad8f3f');
-  }
+  getSongs(){
+    return this.http.get('https://api.themoviedb.org/3/tv/popular?api_key=5f2b5e0ae3a00a80c918135739ad8f3f&language=en-US&page=1');
+  } 
 }

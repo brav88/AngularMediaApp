@@ -1,1 +1,39 @@
-<p>series-page works!</p>
+<div class="container-fluid">
+    <div>
+        <h3></h3>
+    </div>
+    <div class="row">
+        <div id="cardMovies" class="card" *ngFor="let serie of series">
+            <img src='https://image.tmdb.org/t/p/original{{ serie.poster_path }}' class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ serie.name }}</h5>
+                <div class="row">
+                    <div class="col-5">
+                        Votes:
+                    </div>
+                    <div class="col-7">
+                        {{ serie.vote_average }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        Released:
+                    </div>
+                    <div class="col-7">
+                        {{ serie.first_air_date }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-5">
+                        Popularity:
+                    </div>
+                    <div class="col-7">
+                        {{ serie.popularity }}
+                    </div>
+                </div>
+                <hr>
+                <a href="#" class="btn btn-primary">View TV Show</a>
+            </div>
+        </div>
+    </div>
+</div>
