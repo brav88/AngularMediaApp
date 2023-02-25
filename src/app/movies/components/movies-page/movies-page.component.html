@@ -2,6 +2,11 @@
     <div>
         <h3>{{moviesCategory}}</h3>
     </div>
+    <div class="btn-group me-2" role="group" aria-label="First group">
+        <button (click)="loadMoviePage(1)" type="button" class="btn btn-primary">1</button>
+        <button (click)="loadMoviePage(2)" type="button" class="btn btn-primary">2</button>
+        <button (click)="loadMoviePage(3)" type="button" class="btn btn-primary">3</button>
+    </div>
     <div class="row">
         <div id="cardMovies" class="card" *ngFor="let movie of movies">
             <img src='https://image.tmdb.org/t/p/original{{ movie.poster_path }}' class="card-img-top" alt="...">
@@ -32,7 +37,7 @@
                     </div>
                 </div>
                 <hr>
-                <a href="#" class="btn btn-primary">View movie</a>
+                <a [routerLink]="['/movies/', movie.id]" class="btn btn-primary">View movie</a>
             </div>
         </div>
     </div>
