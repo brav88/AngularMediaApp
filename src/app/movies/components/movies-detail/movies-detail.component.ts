@@ -33,6 +33,15 @@ export class MoviesDetailComponent implements OnInit {
       );      
   }
 
+  saveFavoriteMovie(movieDetails: any){
+    this.moviesService.saveFavoriteMovie(movieDetails.title, movieDetails.overview, movieDetails.release_date)
+      .subscribe(
+        (data: any) => {
+          console.log('Movie saved');
+        }
+      );      
+  }
+
   loadMovieVideos(movieId: number){
     this.moviesService.getMovieVideos(movieId)
       .subscribe(
@@ -40,5 +49,5 @@ export class MoviesDetailComponent implements OnInit {
           this.movieVideos = data.results;     
         }
       );
-  }
+  }  
 }

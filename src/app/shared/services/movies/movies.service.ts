@@ -20,7 +20,11 @@ export class MoviesService {
     return this.http.get('https://api.themoviedb.org/3/movie/' + movieId + '?api_key=5f2b5e0ae3a00a80c918135739ad8f3f');
   }
 
-  getMovieVideos(movieId: number){
+  getMovieVideos(movieId: number) {
     return this.http.get('https://api.themoviedb.org/3/movie/' + movieId + '/videos?api_key=5f2b5e0ae3a00a80c918135739ad8f3f&language=en-US')
+  }
+
+  saveFavoriteMovie(title: string, description: string, dateRelease: Date) {
+    return this.http.get('http://mongobackend:3000/movie/add/' + title + '/' + description + '/' + dateRelease);
   }
 }
