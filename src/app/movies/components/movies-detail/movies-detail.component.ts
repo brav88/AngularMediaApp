@@ -19,35 +19,45 @@ export class MoviesDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.movieId = params['id'];
-      this.loadMovieDetail(this.movieId);  
-      this.loadMovieVideos(this.movieId);     
+      this.loadMovieDetail(this.movieId);
+      this.loadMovieVideos(this.movieId);
     });
   }
 
-  loadMovieDetail(movieId: number){
+  loadMovieDetail(movieId: number) {
     this.moviesService.getMovieDetail(movieId)
       .subscribe(
         (data: any) => {
-          this.movieDetails = data;              
+          this.movieDetails = data;
         }
-      );      
+      );
   }
 
-  saveFavoriteMovie(movieDetails: any){
-    this.moviesService.saveFavoriteMovie(movieDetails.title, movieDetails.overview, movieDetails.release_date)
+  saveFavoriteMovie(movieDetails: any) {
+
+    var movie = { title: movieDetails.title, description: movieDetails.overview, dateRelease: movieDetails.release_date }
+
+    this.moviesService.saveFavoriteMovie(movie)
       .subscribe(
         (data: any) => {
-          console.log('Movie saved');
+          console.log(data);
+
+          if(data.status == 'Ok'){
+            console.log("Ok");
+          }
+          else{
+            console.log("Error");
+          }
         }
-      );      
+      );
   }
 
-  loadMovieVideos(movieId: number){
+  loadMovieVideos(movieId: number) {
     this.moviesService.getMovieVideos(movieId)
       .subscribe(
         (data: any) => {
-          this.movieVideos = data.results;     
+          this.movieVideos = data.results;
         }
       );
-  }  
+  }
 }
