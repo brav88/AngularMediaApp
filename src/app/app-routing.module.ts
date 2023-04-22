@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MoviesGuard } from './guards/movies.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'movies',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: 'movies',
-    loadChildren: () => import('./movies/movies.module').then(m => m.MoviesModule)
+    loadChildren: () => import('./movies/movies.module').then(m => m.MoviesModule), 
+    canActivate: [MoviesGuard]
   },
   {
     path: 'series',
@@ -18,6 +20,10 @@ const routes: Routes = [
   {
     path: 'songs',
     loadChildren: () => import('./songs/songs.module').then(m => m.SongsModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
   },
 ];
 
